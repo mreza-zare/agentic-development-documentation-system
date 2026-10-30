@@ -20,7 +20,7 @@ The installer places the skill in your Codex skills directory. Start a new Codex
 Use $living-documentation to set up documentation for this project. Preserve existing documentation and explain any unresolved conflicts.
 ```
 
-For later changes, ask `Use $living-documentation to assess the documentation impact of this change.` The setup also adds a concise maintenance pointer to project agent instructions when appropriate, but automatic discovery and adherence depend on the agent and its configuration.
+For later changes, install the separate [`documentation-impact`](skills/documentation-impact/) skill using the same installer with its repository path, then ask `Use $documentation-impact to assess the documentation impact of this change.` The setup skill also supports this workflow if the separate skill is unavailable. The setup also adds a concise maintenance pointer to project agent instructions when appropriate, but automatic discovery and adherence depend on the agent and its configuration.
 
 The skill follows the [Agent Skills format](https://agentskills.io/specification). For another compatible agent, copy the [`skills/living-documentation`](skills/living-documentation/) directory to the location documented by that agent and invoke it as that agent requires. Installation paths and automatic invocation differ across tools. If your agent cannot load skills, use the [standalone prompt](PROMPT.md).
 
@@ -32,9 +32,11 @@ The skill follows the [Agent Skills format](https://agentskills.io/specification
 4. After a meaningful change, assess documentation impact. Update the right source only when its meaning changed; an explicit no-op is a valid result.
 5. Check the resulting links, evidence, diff, and destination-appropriate privacy before reporting the outcome.
 
-The method does not prescribe a fixed document tree or require an ADR or saved plan for every task. Existing documentation and local changes are preserved. An agent should investigate discrepancies rather than assume either the code or a document always wins.
+The method selects a light, standard, or heavy profile based on project architecture and coordination needs. Each profile requires specific knowledge coverage, while allowing existing documents and combined files. It does not prescribe a fixed document tree or require an ADR or saved plan for every task. Existing documentation and local changes are preserved. An agent should investigate discrepancies rather than assume either the code or a document always wins.
 
-For a more detailed workflow, including multi-repository ownership, evidence reconciliation, decisions, plans, and maintenance examples, see the [field guide](skills/living-documentation/references/field-guide.md). The standalone prompt includes the same core practices without requiring this repository.
+For profile selection, required and conditional documentation, and a step-by-step migration and maintenance process, see [profiles and operating workflows](skills/living-documentation/references/profiles-and-workflows.md). For a more detailed evidence workflow, including multi-repository ownership, evidence reconciliation, decisions, plans, and maintenance examples, see the [field guide](skills/living-documentation/references/field-guide.md). The standalone prompt includes the same core practices without requiring this repository.
+
+The setup can also recommend a small set of project-specific agent skills when recurring workflows justify them. It reuses existing skills and creates tailored ones only when requested or authorized.
 
 ## Example
 

@@ -1,6 +1,6 @@
 ---
 name: living-documentation
-description: Set up or maintain a project's agent-friendly living documentation. Use when asked to establish a documentation system, assess documentation impact, or update project knowledge after a meaningful change.
+description: Set up or maintain a project's agent-friendly living documentation. Use when asked to establish or improve a project documentation system. For a specific change, prefer the documentation-impact skill when available.
 ---
 
 # Living documentation
@@ -15,13 +15,13 @@ Build a small, navigable knowledge base that reflects the project, and maintain 
 
 ## Practical guidance
 
-For setup, migration, cross-repository work, or a non-obvious documentation impact, read [the field guide](references/field-guide.md). It contains an evidence workflow, concrete document shapes, and worked maintenance cases. For routine edits, use the concise workflow below.
+For setup, migration, profile selection, or a non-obvious documentation impact, read [profiles and operating workflows](references/profiles-and-workflows.md). It defines required coverage, conditional documents, selection criteria, bootstrap and maintenance. For additional evidence and reconciliation guidance, see [the field guide](references/field-guide.md). For routine edits, use the concise workflow below.
 
 ## Set up
 
 Create or improve a short documentation map using the project's existing entry point, or `docs/index.md` if there is none. Link only to real documents and describe when to read them. Add a concise pointer to the map in the project's existing agent instructions, or create `AGENTS.md` if appropriate and within the requested scope. Preserve existing instructions.
 
-Document only knowledge justified by evidence and useful to the project. Use existing documents where possible; add a new document only when it has a clear purpose. A small project may need only a map and one current-state document. Avoid empty templates and duplicated details that code, schemas, or tests already express reliably.
+Document only knowledge justified by evidence and useful to the project. Use existing documents where possible; add a new document only when it has a clear purpose. Select a light, standard or heavy profile based on evidence using the profiles guide; required coverage can reuse and combine existing documents. Avoid empty templates and duplicated details that code, schemas, or tests already express reliably.
 
 Keep these kinds of knowledge distinct, without requiring a fixed directory tree:
 
@@ -32,7 +32,13 @@ Keep these kinds of knowledge distinct, without requiring a fixed directory tree
 
 Where the project has agent instructions, add a brief maintenance instruction: read the documentation map and relevant sources before work; after a meaningful change, assess documentation impact and update only affected knowledge. Do not impose a new commit, approval, or other project workflow. Agent instruction discovery varies by tool, so explain any manual step needed for the user's agent.
 
+## Tailor skills
+
+During setup, identify only useful skills for the user’s recurring documentation workflows, following the selection criteria in [profiles and operating workflows](references/profiles-and-workflows.md). Prefer existing skills; propose none when none adds value. Create tailored skills when requested or authorized, within the appropriate project scope, and explain invocation and discovery.
+
 ## Maintain
+
+For a focused post-change assessment, use the separate `documentation-impact` skill when available; the workflow below also works when it is not installed.
 
 Read the map and the documents relevant to the task, then inspect code, schema, tests, or other evidence as needed. Assess whether product behavior, architecture, data rules, a durable decision, or an initiative's execution context has materially changed. Update the appropriate existing source with the smallest accurate edit; add a decision or plan only when justified. Preserve historical records, and do not turn plans into task diaries or changelogs.
 
