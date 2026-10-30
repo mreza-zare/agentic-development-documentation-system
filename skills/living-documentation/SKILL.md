@@ -13,6 +13,10 @@ Build a small, navigable knowledge base that reflects the project, and maintain 
 - Identify existing sources of truth, their audience, and any gaps or contradictions. Distinguish implemented behavior, intended behavior, and plans. Do not infer a product decision or claim an unverified fact. Investigate disagreements and report unresolved ones; ask the user when resolving one requires a decision.
 - Preserve useful existing documents and local changes. Do not overwrite, move, archive, or delete them merely to fit this method. Adapt to the project's language, naming, size, and existing tools.
 
+## Practical guidance
+
+For setup, migration, cross-repository work, or a non-obvious documentation impact, read [the field guide](references/field-guide.md). It contains an evidence workflow, concrete document shapes, and worked maintenance cases. For routine edits, use the concise workflow below.
+
 ## Set up
 
 Create or improve a short documentation map using the project's existing entry point, or `docs/index.md` if there is none. Link only to real documents and describe when to read them. Add a concise pointer to the map in the project's existing agent instructions, or create `AGENTS.md` if appropriate and within the requested scope. Preserve existing instructions.

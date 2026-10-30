@@ -34,6 +34,8 @@ The skill follows the [Agent Skills format](https://agentskills.io/specification
 
 The method does not prescribe a fixed document tree or require an ADR or saved plan for every task. Existing documentation and local changes are preserved. An agent should investigate discrepancies rather than assume either the code or a document always wins.
 
+For a more detailed workflow, including multi-repository ownership, evidence reconciliation, decisions, plans, and maintenance examples, see the [field guide](skills/living-documentation/references/field-guide.md). The standalone prompt includes the same core practices without requiring this repository.
+
 ## Example
 
 In a fictional small inventory app, an agent finds a README and an existing architecture note. It adds a short map linking to both and documents a verified stock reservation rule in the appropriate existing note. It does not create empty database or plans directories. A later internal refactor that preserves the rule needs no documentation edit; a change to the rule does.
