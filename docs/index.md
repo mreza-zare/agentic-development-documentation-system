@@ -5,6 +5,7 @@ Audience: project users, contributors and coding agents. Use this index to choos
 ## Project overview
 
 - [README](../README.md) — introduction, installation, quick start and examples. For users adopting the method and contributors checking the entry experience.
+- [Installation and tool setup](installation.md) — current tool-specific installation, invocation, discovery checks, updates and prompt fallback, with dated adoption evidence and official sources. For users adding the skills to a coding agent.
 - [Agent instructions](../AGENTS.md) — repository documentation and maintenance workflow. For coding agents before working in this repository.
 - [Product](product.md) — purpose, audience, supported workflows, rules and limits. For users and contributors evaluating or changing the method's behavior.
 - [Architecture](architecture.md) — artifact responsibilities, dependencies and boundaries. For contributors changing how the skills, prompt and guides fit together.

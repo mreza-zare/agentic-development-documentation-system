@@ -8,23 +8,29 @@ For this repository's complete documentation map, start at [docs/index.md](docs/
 
 Choose either the reusable skill or the [standalone prompt](PROMPT.md). The prompt works without installing a skill; paste it into an agent that can inspect and edit your project.
 
-### Install the skill in Codex
+### Install in your agent
 
-In Codex, ask the skill installer:
+See [installation and tool setup](docs/installation.md) for Claude Code, ChatGPT/Codex, Cursor, Google Antigravity and OpenCode. The guide includes project and user installation, invocation, verification, updates and a standalone-prompt fallback, with dated adoption evidence and official sources.
+
+For a quick Codex setup, ask its skill installer to install both workflows:
 
 ```text
 $skill-installer install https://github.com/mreza-zare/agentic-development-documentation-system/tree/main/skills/living-documentation
 ```
 
-The installer places the skill in your Codex skills directory. Start a new Codex session if needed, then open the project you want to document and ask:
+```text
+$skill-installer install https://github.com/mreza-zare/agentic-development-documentation-system/tree/main/skills/documentation-impact
+```
+
+The installer places the skills in your Codex skills directory. Start a new Codex session if needed, then open the project you want to document and ask:
 
 ```text
 Use $living-documentation to set up documentation for this project. Preserve existing documentation and explain any unresolved conflicts.
 ```
 
-For later changes, install the separate [`documentation-impact`](skills/documentation-impact/) skill using the same installer with its repository path, then ask `Use $documentation-impact to assess the documentation impact of this change.` The setup skill also supports this workflow if the separate skill is unavailable. Setup adds a concise documentation and maintenance pointer to the project's `AGENTS.md` or existing `CLAUDE.md`, but automatic discovery and adherence depend on the agent and its configuration.
+For later changes, ask `Use $documentation-impact to assess the documentation impact of this change.` The setup skill also supports this workflow if the separate skill is unavailable. Setup adds a concise documentation and maintenance pointer to the project's `AGENTS.md` or existing `CLAUDE.md`, but automatic discovery and adherence depend on the agent and its configuration.
 
-The skill follows the [Agent Skills format](https://agentskills.io/specification). For another compatible agent, copy the [`skills/living-documentation`](skills/living-documentation/) directory to the location documented by that agent and invoke it as that agent requires. Installation paths and automatic invocation differ across tools. If your agent cannot load skills, use the [standalone prompt](PROMPT.md).
+The skills follow the [Agent Skills format](https://agentskills.io/specification). For manual installation, copy each complete skill directory, including its supporting references, to the location in the [tool setup guide](docs/installation.md). If your agent cannot load skills, use the [standalone prompt](PROMPT.md).
 
 ## How it works
 

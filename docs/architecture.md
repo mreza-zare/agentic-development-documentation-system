@@ -7,6 +7,7 @@ Status: current. Audience: contributors and coding agents changing this reposito
 The repository is a Markdown instruction package with two skills, supporting references and a standalone prompt. It has no application runtime, database, build manifest or automatic documentation synchronizer.
 
 - [README](../README.md) is the user entry point for installation, invocation and a short explanation of the method.
+- [Installation and tool setup](installation.md) owns tool-specific discovery locations, installation and invocation examples, verification and update guidance, and dated sources for tool coverage. It documents delivery without changing the shared method.
 - [Living documentation](../skills/living-documentation/SKILL.md) is the setup and reorganization entry point, with a maintenance fallback. Its frontmatter supplies the skill name and discovery description.
 - [Profiles and operating workflows](../skills/living-documentation/references/profiles-and-workflows.md) defines the base structure, profile depth, conditional coverage, migration and skill-selection rules. It is packaged with the setup skill.
 - [Field guide](../skills/living-documentation/references/field-guide.md) supplies additional evidence, reconciliation, ownership and maintenance guidance within the setup skill package.

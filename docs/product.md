@@ -1,6 +1,6 @@
 # Product
 
-Status: current. Audience: users adopting the method and contributors changing its behavior. This document owns product purpose, scope and rules; installation belongs in the [README](../README.md), and detailed agent procedures remain in the [sources indexed here](index.md).
+Status: current. Audience: users adopting the method and contributors changing its behavior. This document owns product purpose, scope and rules; installation starts in the [README](../README.md) with tool-specific steps in the [installation guide](installation.md), and detailed agent procedures remain in the [sources indexed here](index.md).
 
 ## Purpose and audience
 
