@@ -12,17 +12,13 @@ Choose either the reusable skill or the [standalone prompt](PROMPT.md). The prom
 
 See [installation and tool setup](docs/installation.md) for Claude Code, ChatGPT/Codex, Cursor, Google Antigravity and OpenCode. The guide includes project and user installation, invocation, verification, updates and a standalone-prompt fallback, with dated adoption evidence and official sources.
 
-For a quick Codex setup, ask its skill installer to install both workflows:
+For an installation that can receive updates, use [Skills CLI](https://github.com/vercel-labs/skills) from the project you want to document (requires Node.js 22.20 or later and npm/npx):
 
-```text
-$skill-installer install https://github.com/mreza-zare/agentic-development-documentation-system/tree/main/skills/living-documentation
+```sh
+npx skills add mreza-zare/agentic-development-documentation-system --skill living-documentation documentation-impact
 ```
 
-```text
-$skill-installer install https://github.com/mreza-zare/agentic-development-documentation-system/tree/main/skills/documentation-impact
-```
-
-The installer places the skills in your Codex skills directory. Start a new Codex session if needed, then open the project you want to document and ask:
+Select your agent and installation method. The default scope is this project; add `-g` for a user-wide installation. For an agent running the command without interaction, specify the intended agent with `--agent` and add `-y`; see the [managed installation guide](docs/installation.md#managed-installation-recommended). Existing users should follow [migration guidance](docs/installation.md#previous-manual-or-codex-installer-installations) before replacing files. Start a new agent session if needed, then ask (Codex example):
 
 ```text
 Use $living-documentation to set up documentation for this project. Preserve existing documentation and explain any unresolved conflicts.
@@ -31,6 +27,22 @@ Use $living-documentation to set up documentation for this project. Preserve exi
 For later changes, ask `Use $documentation-impact to assess the documentation impact of this change.` The setup skill also supports this workflow if the separate skill is unavailable. Setup adds a concise documentation and maintenance pointer to the project's `AGENTS.md` or existing `CLAUDE.md`, but automatic discovery and adherence depend on the agent and its configuration.
 
 The skills follow the [Agent Skills format](https://agentskills.io/specification). For manual installation, copy each complete skill directory, including its supporting references, to the location in the [tool setup guide](docs/installation.md). If your agent cannot load skills, use the [standalone prompt](PROMPT.md).
+
+### Update through your agent
+
+Paste this request into your coding agent in the target project:
+
+```text
+Update living-documentation and documentation-impact from mreza-zare/agentic-development-documentation-system to the latest upstream revision. Read and follow the update and migration instructions at https://github.com/mreza-zare/agentic-development-documentation-system/blob/main/docs/installation.md#update-through-your-agent. Inspect my existing installation and scope first, preserve local customizations, update only these skills, and verify both skills and the setup references. Report the source revision, changed paths and any restart needed. Do not change my project's documentation as part of the skill update.
+```
+
+For skills already managed by Skills CLI, the direct project update command is:
+
+```sh
+npx skills update living-documentation documentation-impact -p
+```
+
+Use `-g` instead of `-p` for a user-wide installation. Previous manual copies and Codex installer copies need a [one-time migration or manual refresh](docs/installation.md#previous-manual-or-codex-installer-installations). Updates run on request; pushing to this repository does not update existing installations automatically.
 
 ## How it works
 

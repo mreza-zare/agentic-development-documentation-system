@@ -12,7 +12,7 @@ The problem it addresses is scattered or stale knowledge: an agent can miss a so
 
 - **Setup or reorganization:** inspect instructions, existing documents and implementation evidence; select a documentation profile; establish base files; migrate equivalent sources without losing content; add conditional coverage when justified; verify the result.
 - **Focused maintenance:** inspect a meaningful change and relevant knowledge, update affected sources and index entries, or explain why unchanged meaning needs no edit. Report structural gaps without starting an unsolicited migration.
-- **Alternative delivery:** use the setup skill, the dedicated maintenance skill or the self-contained standalone prompt. Installation and discovery depend on the user's agent.
+- **Alternative delivery:** use the setup skill, the dedicated maintenance skill or the self-contained standalone prompt. Installation and discovery depend on the user's agent. The [installation guide](installation.md#update-through-your-agent) provides managed installation, agent-assisted updates and migration of older copies; updates run on request and preserve project-owned documentation.
 - **Complex projects:** follow ownership and shared contracts across accessible repositories, preserve historical decisions and identify work that cannot be verified within the authorized scope.
 - **Tailored workflows:** recommend project-specific skills only for real recurring needs; create them only when requested or authorized.
 
