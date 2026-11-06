@@ -1,6 +1,6 @@
 # Field guide: living documentation in practice
 
-Use this guide for setup, migration, cross-repository changes, or ambiguous maintenance. Adapt the paths and depth to the project; the shapes below are examples, not a mandatory tree.
+Use this guide for setup, migration, cross-repository changes, or ambiguous maintenance. Keep the base filenames defined in [profiles and operating workflows](profiles-and-workflows.md); adapt depth and additional documentation to the project.
 
 ## 1. Inventory and reconcile
 
@@ -11,23 +11,30 @@ Use this guide for setup, migration, cross-repository changes, or ambiguous main
 
 ## 2. Give each kind of knowledge a home
 
-A useful map answers **what to read and when**, not merely where files are. Identify actual paths, mark historical and future sources clearly, and link relevant plans and decisions. Agent instructions should point to the map and a short maintenance rule; preserve local workflow instructions and avoid copying the knowledge base into them.
+A useful `docs/index.md` answers **what to read and when**, not merely where files are. Index all project documentation, including sources outside `docs/`, with descriptions, audiences, reading triggers and current/planned/historical status. Root `AGENTS.md` or existing `CLAUDE.md` should point to the index and a short maintenance rule; preserve local workflow instructions and avoid copying the knowledge base into them. Both instruction files are not required; align pointers if both exist.
 
-For a complex application, consider these homes only when evidence and repeated use justify them:
+During setup or an explicitly requested reorganization, rename sources with the same role and boundaries to the base paths. Split multipurpose documents without losing other useful content, reconcile existing destinations without overwriting local changes, and repair incoming and outgoing links. Preserve specialized sources and link to them; flag external references you cannot update. See the profiles guide for migration examples.
 
-- **Product:** users, roles, scope, important journeys, visible behavior and constraints. Identify gaps separately from implemented features.
-- **Architecture:** components, trust boundaries, ownership, integration and failure behavior; link to code and decisions for detail.
+Every profile has these separate current-state homes, concise for small projects:
+
+- **Product (`docs/product.md`):** purpose, problem, users, roles, scope, capabilities, important journeys, visible rules and constraints. Identify gaps and future plans separately from implemented features.
+- **Architecture (`docs/architecture.md`):** technical structure, component responsibilities, dependencies, trust boundaries, ownership, integration and failure behavior; link to code, decisions and separate module documents for detail.
+
+Add these homes when their conditions in the profiles guide apply:
+
 - **Data:** system of record, invariants, ownership and lifecycle; point to the schema for exact fields and migrations. Explain cross-service contracts without maintaining a second schema.
 - **Operations:** prerequisites, safe procedures, verification and recovery, with environment assumptions; never include secrets.
 - **Decisions:** record context, decision, reasons and consequences when a durable choice could be wrongly reversed. Keep earlier decisions and link a successor when superseded. Do not invent rationale from code.
 - **Plans:** record status, scope, dependencies, next meaningful milestone and verification for long-running work when useful. A planned initiative is neither current behavior nor permission to begin it. Update on material changes, not every commit.
 - **History:** preserve useful original specifications and migration context, explicitly labeled historical; Git is normally the complete change history. Do not archive or remove a source until its valuable information has a confirmed home.
 
-Add domain documents only when broad sources repeatedly become difficult to use. Avoid empty folders, exhaustive API or route copies, task diaries and repeated test counts.
+Put domain/module detail in separate documents when broad sources become difficult to use. Use `docs/modules/<module>.md` by default, reuse existing specialized sources where appropriate, and link them from architecture and the index. Avoid empty folders, exhaustive API or route copies, task diaries and repeated test counts.
 
 ## 3. Maintain after a change
 
 Trace the change across user behavior, component boundaries, data invariants, operations, decisions and any initiative it actually belongs to. Inspect relevant current sources and their callers, then choose a destination:
+
+For a focused assessment, use the existing map and sources even if the base structure is missing. Report structural gaps separately; maintenance alone does not authorize setup, file renames or a migration.
 
 - A changed access rule updates product and data documents as needed; link to the implementation or schema, and update an ADR only if the durable decision itself changes.
 - A shared schema ownership change may affect the owning repository and consumers' boundary descriptions; distinguish verified changes from inaccessible repositories and report work outside scope.

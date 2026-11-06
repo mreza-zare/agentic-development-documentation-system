@@ -11,7 +11,7 @@ Build a small, navigable knowledge base that reflects the project, and maintain 
 
 - Inspect the relevant agent instructions, existing documentation, project structure, code, configuration, and tests. Read selectively; do not load the whole repository by default.
 - Identify existing sources of truth, their audience, and any gaps or contradictions. Distinguish implemented behavior, intended behavior, and plans. Do not infer a product decision or claim an unverified fact. Investigate disagreements and report unresolved ones; ask the user when resolving one requires a decision.
-- Preserve useful existing documents and local changes. Do not overwrite, move, archive, or delete them merely to fit this method. Adapt to the project's language, naming, size, and existing tools.
+- Preserve useful content and local changes. During setup or an explicitly requested reorganization, normalize equivalent documents to the base paths below and repair references; do not discard content to fit the structure. Use the project's language and existing tools.
 
 ## Practical guidance
 
@@ -19,18 +19,25 @@ For setup, migration, profile selection, or a non-obvious documentation impact, 
 
 ## Set up
 
-Create or improve a short documentation map using the project's existing entry point, or `docs/index.md` if there is none. Link only to real documents and describe when to read them. Add a concise pointer to the map in the project's existing agent instructions, or create `AGENTS.md` if appropriate and within the requested scope. Preserve existing instructions.
+Establish these base files for every profile, keeping each concise when the project is small:
 
-Document only knowledge justified by evidence and useful to the project. Use existing documents where possible; add a new document only when it has a clear purpose. Select a light, standard or heavy profile based on evidence using the profiles guide; required coverage can reuse and combine existing documents. Avoid empty templates and duplicated details that code, schemas, or tests already express reliably.
+- Root `AGENTS.md`, or existing `CLAUDE.md`: state that documentation exists, point to `docs/index.md` and give the maintenance instruction below. Preserve existing instructions; both files are not required. If both exist, keep their documentation pointers consistent.
+- `docs/index.md`: index all project documentation, including sources outside `docs/`, with real links, descriptions, audiences, reading triggers and current/planned/historical status.
+- `docs/product.md`: purpose, users or consumers, problem, scope, capabilities, main workflows, rules and limitations. Separate current behavior from future plans.
+- `docs/architecture.md`: technical structure, component responsibilities, dependencies, integrations, important boundaries and failure behavior. Link to separate module documents for detail; use `docs/modules/<module>.md` by default when the detail needs its own home.
 
-Keep these kinds of knowledge distinct, without requiring a fixed directory tree:
+During setup or an explicitly requested reorganization, rename a source with the same role and boundaries to its standard path and update links and instruction references. Split multipurpose sources into the appropriate homes while retaining other useful content. Reconcile an existing destination without overwriting local changes; ask when competing sources require an intent decision. Keep specialized sources in place and link to them instead of duplicating details. Flag external references you cannot update.
+
+Document only evidence-backed knowledge useful to the project; mark unknowns and missing evidence rather than inventing content. Select a light, standard or heavy profile using the profiles guide. Profiles control depth and additional coverage, not whether the base files exist. Avoid empty templates and duplicating code, schemas or tests. Beyond the base files, add documents only for a clear purpose.
+
+Keep these kinds of knowledge distinct; additional documentation can follow the project's conventions:
 
 - **Current state:** product behavior, architecture, data rules, and other project-specific facts as they are now. Note evidence and uncertainty where useful.
 - **Decisions:** durable choices and their rationale and consequences. Record a decision only when the why will matter later; preserve earlier decisions when they are superseded.
 - **Plans:** intended or ongoing work and its execution context, clearly labeled as planned, in progress, or completed. Plans are not proof that behavior exists.
 - **History:** use Git where available for complete change history. Preserve useful legacy material and label it historical rather than treating it as current.
 
-Where the project has agent instructions, add a brief maintenance instruction: read the documentation map and relevant sources before work; after a meaningful change, assess documentation impact and update only affected knowledge. Do not impose a new commit, approval, or other project workflow. Agent instruction discovery varies by tool, so explain any manual step needed for the user's agent.
+In agent instructions, add a brief maintenance instruction: read the documentation index and relevant sources before work; after a meaningful change, assess documentation impact and update only affected knowledge. Keep the index complete when documents are added, renamed, removed or change status. Do not impose a new commit, approval, or other project workflow. Agent instruction discovery varies by tool, so explain any manual step needed for the user's agent.
 
 ## Tailor skills
 
@@ -39,6 +46,8 @@ During setup, identify only useful skills for the user’s recurring documentati
 ## Maintain
 
 For a focused post-change assessment, use the separate `documentation-impact` skill when available; the workflow below also works when it is not installed.
+
+Maintenance alone does not authorize setup or migration to the base structure. Use the existing map and sources; report structural gaps without renaming files or creating base files merely to satisfy setup rules.
 
 Read the map and the documents relevant to the task, then inspect code, schema, tests, or other evidence as needed. Assess whether product behavior, architecture, data rules, a durable decision, or an initiative's execution context has materially changed. Update the appropriate existing source with the smallest accurate edit; add a decision or plan only when justified. Preserve historical records, and do not turn plans into task diaries or changelogs.
 
