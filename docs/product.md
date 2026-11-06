@@ -22,6 +22,8 @@ All profiles require root `AGENTS.md` or existing `CLAUDE.md`, plus `docs/index.
 
 Light, standard and heavy profiles adjust depth and coordination coverage. Small projects still have the base files, with concise verified content and explicit unknowns. Additional data, operations, decision, initiative or module documents depend on the project's actual needs.
 
+`docs/database.md` is conditional at every profile: it is required when a repository owns or manages a database, its schema or migrations, or directly accesses a shared database with important data contracts. It covers ownership, main entities and relationships, invariants, lifecycle, access and migration constraints, linking to authoritative schemas rather than duplicating them. Repositories without that role, including API-only frontends and stateless tools, do not need it. The [database documentation criteria](../skills/living-documentation/references/profiles-and-workflows.md#database-documentation) define inclusion, omission and migration behavior.
+
 Preserve useful content, existing instructions and local changes. During setup or requested reorganization, rename genuinely equivalent sources and repair references; split documents with multiple responsibilities without discarding their other material. Keep specialized knowledge in its existing authoritative source where possible.
 
 Document current behavior separately from intended behavior, plans and history. Investigate disagreements rather than assuming code or documents always win. Unknown intent requires a decision; unsupported facts and historical rationale must not be invented. Semantic changes drive maintenance, not a requirement to edit documentation on every task.

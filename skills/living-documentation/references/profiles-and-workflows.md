@@ -40,7 +40,8 @@ Heavy adds:
 
 Conditional coverage, required when the condition applies at any profile:
 
-- **Data:** when persistent state or shared data has important invariants: source of truth, ownership, lifecycle, access and migration constraints, with links to schema/migrations. Update on invariant or ownership changes; exact columns stay in the schema.
+- **Database (`docs/database.md`):** when the repository owns or manages a database, its schema or migrations, or directly accesses a shared database with important data contracts. Follow the [database documentation criteria](#database-documentation); this is conditional even for heavy profiles.
+- **Other data:** when non-database persistent state or shared data has important invariants: source of truth, ownership, lifecycle, access and change constraints in an appropriate existing or justified document. Files, caches or logs alone do not require a database document.
 - **Operations:** when setup, deployment, support or recovery has non-obvious steps: prerequisites, safe commands, verification and recovery, environment and owner. Update when the procedure changes; use placeholders for secrets and never expose credentials.
 - **Decision records:** when a durable choice could be costly or unsafe to reverse without its rationale: context, decision, evidence-based reasons, consequences and status. Create only with known rationale; preserve and link superseded records. Do not infer historical reasons.
 - **Initiative plans:** when work is long-running, multi-phase or has important dependencies: objective, scope, status, dependencies, milestones and verification. Update on material execution changes; planned work is not current behavior or authorization. No per-task diary.
@@ -48,6 +49,21 @@ Conditional coverage, required when the condition applies at any profile:
 - **Historical material:** when old specifications or context remain useful: label historical and link its successor or current source. Preserve it until useful knowledge has a confirmed home; correct historical errors rather than updating it as current truth.
 
 Optional material, such as supplementary business context, design guidance or examples, belongs only when a real audience or recurring task benefits. For every additional document state its audience, purpose, owner/source and reason an existing home is insufficient.
+
+## Database documentation
+
+Require `docs/database.md` at any profile if the repository owns or manages a database, its schema or migrations, or directly accesses a shared database with important data contracts. Inspect actual schemas, migrations and read/write flows; a database client dependency alone does not establish the need.
+
+The document explains database purpose and ownership, main entities and relationships, invariants, lifecycle and retention, access boundaries and migration or compatibility constraints. Link to authoritative schemas and migrations for exact fields and to operational procedures for setup, backup or recovery; do not maintain a second schema or copy credentials. Update when these semantics change, and link the document from architecture and the index. For shared databases, keep the owner's documentation authoritative and document only this repository's use and constraints with links to the owner. Do not assert unverified behavior of inaccessible owners or consumers.
+
+During setup or explicitly requested reorganization, apply the same preservation and reference-repair rules as for base files: rename an equivalent database document, split multipurpose sources without losing content, and retain specialized details with links. Focused maintenance uses an existing equivalent source without unsolicited renames. A change that first introduces a database role can justify adding this conditional document within the requested scope, without migrating the rest of the documentation.
+
+Do not create the file where there is no database role. Explain the omission briefly in the setup report or architecture; do not add an empty document or an index link to a missing file. Examples:
+
+- A backend owning relational tables, a CLI owning a SQLite database, or an infrastructure repository managing a database or its migrations needs `docs/database.md`, regardless of profile.
+- A service directly reading or writing shared tables with important consistency or compatibility rules needs database documentation for its usage, linked to the authoritative owner.
+- A frontend that only calls APIs, a stateless tool or a documentation-only repository does not need the file merely because another repository in the system has a database.
+- Important file or object-storage rules still need data coverage when applicable, but do not automatically justify `docs/database.md`.
 
 ## Bootstrap an existing project
 

@@ -1,6 +1,6 @@
 # Field guide: living documentation in practice
 
-Use this guide for setup, migration, cross-repository changes, or ambiguous maintenance. Keep the base filenames defined in [profiles and operating workflows](profiles-and-workflows.md); adapt depth and additional documentation to the project.
+Use this guide for setup, migration, cross-repository changes, or ambiguous maintenance. Keep the base filenames and conditional database filename defined in [profiles and operating workflows](profiles-and-workflows.md); adapt depth and additional documentation to the project.
 
 ## 1. Inventory and reconcile
 
@@ -22,7 +22,8 @@ Every profile has these separate current-state homes, concise for small projects
 
 Add these homes when their conditions in the profiles guide apply:
 
-- **Data:** system of record, invariants, ownership and lifecycle; point to the schema for exact fields and migrations. Explain cross-service contracts without maintaining a second schema.
+- **Database (`docs/database.md`):** required when the repository owns or manages a database, its schema or migrations, or directly accesses a shared database with important data contracts. Explain purpose, ownership, main entities and relationships, invariants, lifecycle, access and migration constraints; link to authoritative schemas, migrations and any shared database owner's documentation without maintaining a second schema. Link from architecture and the index. Repositories without a database role, such as API-only frontends or stateless tools, do not need the file; explain omission briefly in the setup report or architecture. See the [database documentation criteria](profiles-and-workflows.md#database-documentation) for migration and examples.
+- **Other data:** document important non-database persistence or shared-data rules in an appropriate source. The presence of files, caches or logs does not by itself justify a database document.
 - **Operations:** prerequisites, safe procedures, verification and recovery, with environment assumptions; never include secrets.
 - **Decisions:** record context, decision, reasons and consequences when a durable choice could be wrongly reversed. Keep earlier decisions and link a successor when superseded. Do not invent rationale from code.
 - **Plans:** record status, scope, dependencies, next meaningful milestone and verification for long-running work when useful. A planned initiative is neither current behavior nor permission to begin it. Update on material changes, not every commit.

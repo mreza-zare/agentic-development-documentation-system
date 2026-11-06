@@ -31,6 +31,8 @@ Target code, schemas, tests and configuration provide evidence for current facts
 
 This repository uses a light documentation profile: its components are instruction artifacts with no persistent application state or deployment workflow. The existing skill references provide sufficient component detail. More documentation is added only when evidence or recurring work justifies it.
 
+There is no `docs/database.md` here because this repository neither owns nor manages a database, schema or migrations, nor directly accesses shared database contracts. In target projects that do, the conditional document describes data responsibilities and constraints, links to authoritative schemas and migrations, and is linked from architecture and the index. The [database documentation criteria](../skills/living-documentation/references/profiles-and-workflows.md#database-documentation) define when it is needed.
+
 ## Change verification
 
 When the method changes, check the skills, reference guides, standalone prompt and README for consistent requirements. Verify local links and index coverage, inspect migration cases and review the diff for content loss, unrelated changes and sensitive material. No runtime test suite or build pipeline is present in this repository; these checks validate the documentation artifacts and do not prove how every external agent will behave.

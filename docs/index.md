@@ -15,7 +15,7 @@ These sources are independently usable instructions and detailed references; arc
 
 - [Living documentation skill](../skills/living-documentation/SKILL.md) — evidence-based setup, migration and maintenance. For agents setting up or improving a target project's documentation, and contributors changing that workflow.
 - [Documentation impact skill](../skills/documentation-impact/SKILL.md) — focused assessment after a meaningful change. For agents maintaining existing project knowledge without triggering a full setup.
-- [Profiles and operating workflows](../skills/living-documentation/references/profiles-and-workflows.md) — required base files, profile depth, conditional coverage, migration examples and skill selection. For agents choosing coverage or reorganizing documentation, and contributors changing these rules.
+- [Profiles and operating workflows](../skills/living-documentation/references/profiles-and-workflows.md) — required base files, profile depth, conditional coverage (including when `docs/database.md` is needed), migration examples and skill selection. For agents choosing coverage or reorganizing documentation, and contributors changing these rules.
 - [Field guide](../skills/living-documentation/references/field-guide.md) — evidence reconciliation, knowledge placement, cross-repository ownership and verification. For agents handling ambiguous or complex documentation work.
 - [Standalone prompt](../PROMPT.md) — self-contained alternative to installing a skill, including focused maintenance instructions. For users of agents without skill loading and contributors checking parity with the skills.
 
